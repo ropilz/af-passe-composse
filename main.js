@@ -8,6 +8,10 @@ let responseInput;
 let validateBtn;
 let showBtn;
 let nextBtn;
+let questionsView;
+let indexView;
+let verbsView;
+let verbsListData;
 
 const auxiliars = {
     avoir: {
@@ -77,6 +81,12 @@ function ready () {
     validateBtn = document.getElementById('validate');
     showBtn = document.getElementById('show');
     nextBtn = document.getElementById('next');
+
+    questionsView = document.getElementById('questions');
+    indexView = document.getElementById('index');
+    verbsView = document.getElementById('verbList');
+    verbsListData = document.getElementById('theVerbs');
+    
     if (isLoaded)  { loadQuestion(); }
 }
 
@@ -240,6 +250,86 @@ function show () {
     validateBtn.disabled = true;
     showBtn.disabled = true;
     nextBtn.disabled = false;
+}
+
+function study () {
+    questionsView.classList.add('hidden');
+    indexView.classList.remove('hidden');
+    verbsView.classList.add('hidden');
+}
+
+function showQuestion () {
+    questionsView.classList.remove('hidden');
+    indexView.classList.add('hidden');
+    verbsView.classList.add('hidden');
+}
+
+function getEntryHTML (verb, participle) {
+    return `<div class="verb-entry">
+        <dt>${verb}</dt>
+        <dd>${participle}</dd>
+    </div>
+    `;
+}
+
+function showEtre () {
+    let html = '';
+    for (const verb of rawVerbs.etre) {
+        html += getEntryHTML(verb.verb, verb.participle);
+    }
+    verbsListData.innerHTML = html;
+
+    questionsView.classList.add('hidden');
+    indexView.classList.add('hidden');
+    verbsView.classList.remove('hidden');
+}
+
+function showAvoirEr () {
+    let html = '';
+    for (const verb of rawVerbs.avoir.first) {
+        html += getEntryHTML(verb, verb.replace(/er$/, 'é'));
+    }
+    verbsListData.innerHTML = html;
+
+    questionsView.classList.add('hidden');
+    indexView.classList.add('hidden');
+    verbsView.classList.remove('hidden');
+}
+
+function showAvoirIr () {
+    let html = '';
+    for (const verb of rawVerbs.avoir.second) {
+        html += getEntryHTML(verb, verb.replace(/er$/, 'é'));
+    }
+    verbsListData.innerHTML = html;
+
+    questionsView.classList.add('hidden');
+    indexView.classList.add('hidden');
+    verbsView.classList.remove('hidden');
+}
+
+function showAvoirIrregular () {
+    let html = '';
+    for (const verb of rawVerbs.avoir.third) {
+        html += getEntryHTML(verb.verb, verb.participle);
+    }
+    verbsListData.innerHTML = html;
+
+    questionsView.classList.add('hidden');
+    indexView.classList.add('hidden');
+    verbsView.classList.remove('hidden');
+}
+
+function showAvoirReflexive () {
+    let html = '';
+    for (const verb of rawVerbs.reflexive) {
+        html += getEntryHTML(`se ${verb.verb}`, verb.participle);
+    }
+    verbsListData.innerHTML = html;
+
+    questionsView.classList.add('hidden');
+    indexView.classList.add('hidden');
+    verbsView.classList.remove('hidden');
 }
 
 prepare();

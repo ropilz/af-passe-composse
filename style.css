@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
+    overflow: hidden;
 }
 
 h1 {
@@ -64,5 +65,62 @@ button[disabled] {
     display: block;
     margin-top: 30px;
     height: 1.5em; */
+}
+
+.area {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+}
+
+#index {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+
+.study-button {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    width: unset;
+    display: block;
+    width: 80%;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.menu-button {
+    width: 90%;
+    margin: 10px auto;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.verb-entry {
+    display: flex;
+    font-size: 24px;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 6px 10px;
+}
+
+.verb-entry dt {
+    width: 40%;
+}
+
+#theVerbs {
+    position: absolute;
+    top: 0;
+    bottom: 50px;
+    overflow-y: scroll;
+    left: 0;
+    right: 0;
 }
 

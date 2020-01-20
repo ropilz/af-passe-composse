@@ -16,23 +16,48 @@
         </script>
     </head>
     <body onload="ready()">
-        <h1>Test passé composé</h1>
-        <div>
-            <h2><span id="verb"></span></h2>
-            <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="response"/>
-            <div class="response-error">
-                <span id="bad"></span>
-                <span id="good"></span>
+        <div class="area" id="questions">
+            <h1>Test passé composé</h1>
+            <div>
+                <h2><span id="verb"></span></h2>
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="response"/>
+                <div class="response-error">
+                    <span id="bad"></span>
+                    <span id="good"></span>
+                </div>
+                <div class="action-area">
+                    <button onclick="next()" id="validate"
+                        unselectable="on"
+                        onselectstart="return false;" 
+                        onmousedown="return false;"
+                    >Validar</button>
+                    <button onclick="show()" id="show">Mostrar</button>
+                    <button onclick="loadQuestion()" disabled id="next">Siguiente</button>
+                </div>
+                <button class="study-button" onclick="study()">Estudiar</button>
             </div>
-            <div class="action-area">
-                <button onclick="next()" id="validate"
-                    unselectable="on"
-                    onselectstart="return false;" 
-                    onmousedown="return false;"
-                >Validar</button>
-                <button onclick="show()" id="show">Mostrar</button>
-                <button onclick="loadQuestion()" disabled id="next">Siguiente</button>
-            </div>
+        </div>
+        <div class="area menu hidden" id="index">
+            <button class="menu-button" onclick="showEtre()">Être</button>
+            <button class="menu-button" onclick="showAvoirEr()">Avoir ER</button>
+            <button class="menu-button" onclick="showAvoirIr()">Avoir IR</button>
+            <button class="menu-button" onclick="showAvoirIrregular()">Avoir iregular</button>
+            <button class="menu-button" onclick="showAvoirReflexive()">reflexivo</button>
+            <button class="study-button" onclick="showQuestion()">Atrás</button>
+        </div>
+
+        <div class="area list hidden" id="verbList">
+            <dl id="theVerbs">
+                <div class="verb-entry">
+                    <dt>Coffee</dt>
+                    <dd>Black hot drink</dd>
+                </div>
+                <div  class="verb-entry">
+                    <dt>Milk</dt>
+                    <dd>White cold drink</dd>
+                </div>
+              </dl>
+            <button class="study-button" onclick="study()">Atrás</button>
         </div>
     </body>
 </html>
