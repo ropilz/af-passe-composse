@@ -55,7 +55,7 @@ const shorts = {
 }
 
 const pronouns = ['je', 'tu', 'il', 'elle', 'nous', 'vous', 'ils', 'elles'];
-const shortable = ['je', 'tu', 'ne', 'se', 'te', 'me'];
+const shortable = ['je', 'ne', 'se', 'te', 'me'];
 const vowels = ['a', 'e', 'i', 'o', 'u', 'à', 'é', 'ê'];
 const femenin = ['elle', 'elles'];
 const plural = ['nous', 'vous', 'ils', 'elles'];
