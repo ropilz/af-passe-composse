@@ -115,6 +115,7 @@ function loadQuestion () {
 
     responseInput.value = '';
     goodSpan.innerText = '';
+    badSpan.innerText = '';
     validateBtn.disabled = false;
     showBtn.disabled = false;
     nextBtn.disabled = true;
@@ -246,7 +247,7 @@ function next () {
 
 function show () {
     goodSpan.innerText = `${badResponses[Math.floor(badResponses.length * Math.random())]}`;
-    responseInput.value = answerBuild;
+    badSpan.innerText = answerBuild;
     validateBtn.disabled = true;
     showBtn.disabled = true;
     nextBtn.disabled = false;
