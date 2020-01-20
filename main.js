@@ -232,6 +232,8 @@ function next () {
         } while (newWord === last);
         last = newWord;
         goodSpan.innerText = `${goodResponses[newWord]}`;
+        // badSpan.innerText = `★★★★★`
+        badSpan.classList.add('good-one');
         validateBtn.disabled = true;
         showBtn.disabled = true;
         nextBtn.disabled = false;
@@ -240,13 +242,19 @@ function next () {
         do {
             newWord = Math.floor(badResponses.length * Math.random());
         } while (newWord === last);
-        last = newWord;
-        goodSpan.innerText = `${badResponses[newWord]}`;
+            last = newWord;
+            goodSpan.innerText = `${badResponses[newWord]}`;
     }
 }
 
 function show () {
-    goodSpan.innerText = `${badResponses[Math.floor(badResponses.length * Math.random())]}`;
+    let newWord;
+    do {
+        newWord = Math.floor(badResponses.length * Math.random());
+    } while (newWord === last);
+    last = newWord;
+    goodSpan.innerText = `${badResponses[newWord]}`;
+    badSpan.classList.remove('good-one');
     badSpan.innerText = answerBuild;
     validateBtn.disabled = true;
     showBtn.disabled = true;
